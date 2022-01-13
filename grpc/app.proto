@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "newcapec.com/grpc/godemo/proto";
+option java_package = "com.grpc.godemo";
+option java_outer_classname = "GoGrpcUtil";
+
+
+enum AgentStatus {
+  Status1 = 0;
+  Status2= 1;
+  Status3 = 2;
+}
+
+message AppSign{
+  string devphyid = 1;
+}
+
+message AppSignResponse{
+ int32 retcode = 1;
+  string retmsg = 2;
+  string devphyid = 3;
+}
+
+
+service AppSignDevice {
+  rpc Signin(AppSign) returns (AppSignResponse) {}
+}
